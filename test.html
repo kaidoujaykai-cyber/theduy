@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lớp 12A1</title>
+  <link rel="stylesheet" type="text/css" href="chinhmau.css">
+</head>
+<body>
+  <div id="loading">
+  <div class="spinner"></div>
+  <p>Sắp tới rùiii...</p>
+</div>
+  <div class="wrap">
+    <header>
+      <br><br><br><br><br><br><br><br><h2>Thời điểm hiện tại:<div id="clock"></div></h2>
+      <h1>12A1 có gì?</h1>
+      <p class="sub">Khoảnh khắc vui vẻ trong lớp học – không khí lễ kỷ niệm ấm áp và rộn ràng.</p>
+    </header>
+
+    <article class="card" aria-label="Ảnh kỷ niệm lớp 12A1">
+      <div class="media">
+        <img src="https://i.postimg.cc/Y9Y9kSjx/anhlop.jpg">
+      </div>
+      <div class="caption">
+        <div class="title">Khoảnh khắc đáng nhớ</div>
+        <div class="meta">Minh Thạnh, TP.HCM • Tháng 12, 2025</div>
+        <div class="chips" aria-label="Thẻ mô tả">
+          <span class="chip">Kỷ niệm</span>
+          <span class="chip">Bạn bè</span>
+          <span class="chip">Lớp học</span>
+        </div>
+      </div>
+    </article>
+    <div class="btn-center">
+    <a href="gioithieu.html" onclick="showLoading(event)" class="btn btn-animate re">Coi thử nào!</a>
+  </div>
+    <footer>
+      "Khi ta hiểu một điều là muốn đi xa thì cứ đi chung với nhau"
+    </footer>
+  </div>
+  <div id="popup" class="popup">
+    <iframe id="popup-iframe"
+        width="80%"
+        height="450"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+    <p id="popup-text"></p>
+</div>
+
+  <script>
+  function showLoading(event) {
+    event.preventDefault(); // chặn chuyển trang ngay
+    const loading = document.getElementById("loading");
+    loading.style.display = "flex";
+
+    const link = event.currentTarget.href;
+
+    setTimeout(() => {
+      window.location.href = link;
+    }, 1800); // 1.2 giây
+  }
+    function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('clock').textContent = timeString;
+  }
+
+  // Cập nhật mỗi giây
+  setInterval(updateClock, 1000);
+  updateClock(); // gọi ngay lần đầu
+  window.addEventListener("load", () => {
+    document.querySelector(".reveal").classList.add("active");
+  });
+</script>
+
+</body>
+</html>
